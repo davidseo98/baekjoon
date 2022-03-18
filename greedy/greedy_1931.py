@@ -1,25 +1,33 @@
 n = int(input())
-temp = []
-result = {}
-candidate = []
-can_rm_cnt = []
-final = []
-cnt = 0
- 
+meetings = {}
+meetings_list = []
+
 for i in range(n) :
     s, e = map(int, input().split())
-    temp.append([s,e])
+    if meetings.get(s) == None :
+        meetings[s] = e
+    else :
+        if meetings[s] > e :
+            meetings[s] = e
+for key, value in meetings.items() :
+    meetings_list.append([key, value])
+meetings_list.sort(key = lambda x : x[0])
 
-temp.sort(key=lambda x:x[0])
-for item in temp :
-    result[item[0]] = []
-for item in temp :
-    result[item[0]].append(item[1])
+while(1) :
+    overlap_cnt = [0 for _ in range(len(meetings_list))]
+    for i in range(len(meetings_list)) :
+        rest = [x for x in meetings_list if x != meetings_list[i]]
+        start = meetings_list[i][0]
+        end = meetings_list[i][1]
+        for other_meeting in rest :
+            if start<other_meeting[0]<end or start<other_meeting[1]<end or other_meeting[0]<start<other_meeting[1] :
+                overlap_cnt[i] += 1
+    print(overlap_cnt)
+    print(meetings_list)
+    if sum(overlap_cnt) == 0 :
+        break
+    max_overlap_loc = overlap_cnt.index(max(overlap_cnt))
+    meetings_list.pop(max_overlap_loc)
+    
 
-for key in result.keys() :
-    result[key].sort()
-    candidate.append([key, result[key][0]])
-
-for c in candidate :
-    print(c, ": ", c[1]-c[0])
-#
+print(len(meetings_list))

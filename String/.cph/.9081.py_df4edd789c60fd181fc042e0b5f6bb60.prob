@@ -1,0 +1,1 @@
+{"name":"Local: 9081","url":"/Users/hyundukseo/workspace/coding_test/String/9081.py","tests":[{"id":1651542001738,"input":"4\nHELLO\nDRINK\nSHUTTLE\nZOO","output":"HELOL\nDRKIN\nSLEHTTU\nZOO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/String/9081.py","group":"local","local":true}

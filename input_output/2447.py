@@ -68,6 +68,6 @@ u = [["*"]]
 cnt = 0
 cur_loc = 0
 
-main_function(z - 1)
+main_function(z-1)
 for line in s:
     print("".join(line))

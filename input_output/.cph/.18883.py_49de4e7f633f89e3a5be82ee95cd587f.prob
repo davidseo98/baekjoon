@@ -1,0 +1,1 @@
+{"name":"Local: 18883","url":"/Users/hyundukseo/workspace/coding_test/input_output/18883.py","tests":[{"id":1653492716371,"input":"3 4","output":"1 2 3 4\n5 6 7 8\n9 10 11 12"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/input_output/18883.py","group":"local","local":true}

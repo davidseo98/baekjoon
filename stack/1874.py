@@ -1,42 +1,59 @@
+from collections import deque
+
+
+def normal_end():
+    global result
+    for i in result:
+        print(i)
+    exit()
+
+
+def error():
+    print("NO")
+    exit()
+
+
+def check_if_end():
+    global num_stack, numbers
+    if len(num_stack) == 0 and len(numbers) == 0:
+        normal_end()
+
+
 n = int(input())
-numbers = list()
-stack = []
-use_numbers = list(range(10, 1, -1))
+numbers = list(range(n, 0, -1))
+num_stack = list()
+cur_num = 0
+seq_stack = deque()
 result = list()
-moves = []
-
-
-def add():
-    try:
-        stack.append(use_numbers.pop())
-        moves.append("+")
-    except:
-        if result != numbers:
-            print("NO")
-            exit()
-
 
 for i in range(n):
-    numbers.append(int(input()))
+    seq_stack.appendleft(int(input()))
 
-for number in numbers:
-    if len(stack) == 0:
-        add()
+num_stack.append(numbers.pop())
+result.append("+")
+cur_num = num_stack[-1]
+while 1:
 
-    if stack[-1] < number:
-        while stack[-1] < number:
-            add()
-        result.append(stack.pop())
-        moves.append("-")
-    elif stack[-1] > number:
-        cur_num = result.pop()
-        if cur_num != number:
-            print("NO")
-            exit()
-        moves.append("-")
-    else:
-        result.append(stack.pop())
-        moves.append("-")
+    cur_seq_num = seq_stack.pop()
+    while cur_num < cur_seq_num:
+        num_stack.append(numbers.pop())
+        result.append("+")
+        cur_num = num_stack[-1]
 
-for m in moves:
-    print(m)
+    if cur_num == cur_seq_num:
+
+        num_stack.pop()
+        result.append("-")
+
+        if len(num_stack) == 0:
+            try:
+                num_stack.append(numbers.pop())
+                result.append("+")
+            except:
+                check_if_end()
+                continue
+
+        cur_num = num_stack[-1]
+
+    elif cur_num > cur_seq_num:
+        error()

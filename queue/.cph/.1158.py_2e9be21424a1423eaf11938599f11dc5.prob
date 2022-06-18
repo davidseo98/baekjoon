@@ -1,0 +1,1 @@
+{"name":"Local: 1158","url":"/Users/hyundukseo/workspace/coding_test/queue/1158.py","tests":[{"id":1655532008666,"input":"7 3","output":"<3, 6, 2, 7, 5, 1, 4>"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/queue/1158.py","group":"local","local":true}

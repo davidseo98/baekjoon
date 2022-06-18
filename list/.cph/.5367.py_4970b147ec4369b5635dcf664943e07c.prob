@@ -1,0 +1,1 @@
+{"name":"Local: 5367","url":"/Users/hyundukseo/workspace/coding_test/list/5367.py","tests":[{"id":1655551620640,"input":"2\n<<BP<A>>Cd-\nThIsIsS3Cr3t","output":"BAPC\nThIsIsS3Cr3t"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/list/5367.py","group":"local","local":true}

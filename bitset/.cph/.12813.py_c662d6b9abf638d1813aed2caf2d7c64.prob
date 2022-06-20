@@ -1,0 +1,1 @@
+{"name":"Local: 12813","url":"/Users/hyundukseo/workspace/coding_test/bitset/12813.py","tests":[{"id":1655732137517,"input":"0001011000\n0000101111","output":"0000001000\n0001111111\n0001110111\n1110100111\n1111010000"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/bitset/12813.py","group":"local","local":true}

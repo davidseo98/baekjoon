@@ -1,0 +1,1 @@
+{"name":"Local: 11004","url":"/Users/hyundukseo/workspace/coding_test/sort/11004.py","tests":[{"id":1655731173918,"input":"5 2\n4 1 2 3 5","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/sort/11004.py","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: 10814","url":"/Users/hyundukseo/workspace/coding_test/sort/10814.py","tests":[{"id":1655730711083,"input":"3\n21 Junkyu\n21 Dohyun\n20 Sunyoung","output":"20 Sunyoung\n21 Junkyu\n21 Dohyun"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/sort/10814.py","group":"local","local":true}

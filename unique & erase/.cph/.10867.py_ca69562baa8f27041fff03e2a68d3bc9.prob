@@ -1,0 +1,1 @@
+{"name":"Local: 10867","url":"/Users/hyundukseo/workspace/coding_test/unique & erase/10867.py","tests":[{"id":1655804280142,"input":"10\n1 4 2 3 1 4 2 3 1 2","output":"1 2 3 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/unique & erase/10867.py","group":"local","local":true}

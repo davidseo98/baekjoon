@@ -1,0 +1,1 @@
+{"name":"Local: 1822","url":"/Users/hyundukseo/workspace/coding_test/binary search/1822.py","tests":[{"id":1655801626257,"input":"4 3\n2 5 11 7\n9 7 4","output":"3\n2 5 11"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/binary search/1822.py","group":"local","local":true}

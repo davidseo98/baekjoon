@@ -1,0 +1,1 @@
+{"name":"Local: 10250","url":"/Users/hyundukseo/workspace/coding_test/2+/10250.py","tests":[{"id":1655867381401,"input":"3\n6 12 10\n30 50 72\n6 12 6","output":"402\n1203"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/2+/10250.py","group":"local","local":true}

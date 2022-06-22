@@ -1,0 +1,1 @@
+{"name":"Local: 1259","url":"/Users/hyundukseo/workspace/coding_test/2+/1259.py","tests":[{"id":1655864012407,"input":"121\n1231\n12421\n0","output":"yes\nno\nyes"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/2+/1259.py","group":"local","local":true}

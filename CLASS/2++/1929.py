@@ -1,26 +1,23 @@
 import sys
+import math
+
+
+def check_prime(num):
+    for i in range(2, int(math.sqrt(num) + 1)):
+        if num % i == 0:
+            return 0
+    return 1
+
 
 start, end = map(int, sys.stdin.readline().split())
-result = list()
 num_list = list(range(start, end + 1))
+prime_list = list()
 
-for i in range(start, end+1) :
-    
-
-
-
-is_even = True if start % 2 == 0 else False
-
-for i in range(start, end + 1):
-    if is_even:
-        is_even = not (is_even)
+for num in num_list:
+    if num == 1:
         continue
-    is_even = not (is_even)
-    for j in range(2, i):
-        is_prime = True
-        if i % j == 0:
-            is_prime = False
-            break
+    if check_prime(num):
+        prime_list.append(num)
 
-    if is_prime:
-        print(i)
+for prime in prime_list:
+    print(prime)

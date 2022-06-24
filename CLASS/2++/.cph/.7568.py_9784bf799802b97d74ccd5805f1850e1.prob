@@ -1,0 +1,1 @@
+{"name":"Local: 7568","url":"/Users/hyundukseo/workspace/coding_test/CLASS/2++/7568.py","tests":[{"id":1656052709231,"input":"5\n55 185\n58 183\n88 186\n60 175\n46 155","output":"2 2 1 2 5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/CLASS/2++/7568.py","group":"local","local":true}

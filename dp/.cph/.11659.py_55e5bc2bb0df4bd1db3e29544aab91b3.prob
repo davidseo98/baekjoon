@@ -1,0 +1,1 @@
+{"name":"Local: 11659","url":"/Users/hyundukseo/workspace/coding_test/dp/11659.py","tests":[{"id":1656243647279,"input":"5 3\n5 4 3 2 1\n1 3\n2 4\n5 5","output":"12\n9\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/dp/11659.py","group":"local","local":true}

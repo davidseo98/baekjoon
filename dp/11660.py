@@ -1,29 +1,21 @@
 import sys
 
-
-def dim_reduction(x, y):
-    global n
-    return (y - 1) * n + x
-
-
 n, m = map(int, sys.stdin.readline().split())
 graph = list()
 for _ in range(n):
-    graph += list(map(int, sys.stdin.readline().split()))
+    graph.append(list(map(int, sys.stdin.readline().split())))
 
-dp = [0] * (n * n + 1)
+dp = [[0] * (n + 1) for _ in range(n + 1)]
 
-for i in range(n * n):
-    if i == 0:
-        dp[i + 1] = graph[i]
-    else:
-        dp[i + 1] = dp[i] + graph[i]
+for i in range(1, n + 1):
+    for j in range(n):
+        dp[i][j + 1] = dp[i][j] + graph[i - 1][j]
+for i in range(1, n + 1) :
+    for j in range(n) :
+        dp[j + 1][i] = dp[j][i] + dp[j + 1][i]
 
 for _ in range(m):
+    value = 0
     x1, y1, x2, y2 = map(int, sys.stdin.readline().split())
-    start = dim_reduction(x1, y1)
-    end = dim_reduction(x2, y2)
-    print(start, end, dp[start], dp[end])
-    print(dp[end] - dp[start - 1])
-print(graph, len(graph))
-print(dp, len(dp))
+    value = dp[x2][y2] - dp[x2][y1-1] - (dp[x1-1][y2] - dp[x1-1][y1-1])
+    print(value)

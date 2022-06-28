@@ -1,0 +1,1 @@
+{"name":"Local: 2565","url":"/Users/hyundukseo/workspace/coding_test/dp/2565.py","tests":[{"id":1656423056041,"input":"8\n1 8\n3 9\n2 2\n4 1\n6 4\n10 10\n9 7\n7 6","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/dp/2565.py","group":"local","local":true}

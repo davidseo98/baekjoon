@@ -11,5 +11,5 @@ for i in range(x):
     else:
         idx = bisect.bisect_left(dp, arr[i])
         dp[idx] = arr[i]
-    print(dp)
+
 print(len(dp))

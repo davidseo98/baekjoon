@@ -1,0 +1,1 @@
+{"name":"Local: 2589","url":"/Users/hyundukseo/workspace/coding_test/graph/bfs/2589.py","tests":[{"id":1656680398158,"input":"5 7\nWLLWWWL\nLLLWLLL\nLWLWLWW\nLWLWLLL\nWLLWLWW","output":"8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/graph/bfs/2589.py","group":"local","local":true}

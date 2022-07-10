@@ -9,4 +9,5 @@ for num in num_list:
     for i in range(num, k + 1):
         if i >= num:
             dp[i] += dp[i - num]
+
 print(dp[k])

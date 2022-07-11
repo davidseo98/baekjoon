@@ -1,0 +1,1 @@
+{"name":"Local: 9252","url":"/Users/hyundukseo/workspace/coding_test/dp/9252.py","tests":[{"id":1657523721772,"input":"ACAYKP\nCAPCAK","output":"4\nACAK"},{"id":1657525785192,"input":"ABBBCB\nAPYC","output":"2\nAC"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/dp/9252.py","group":"local","local":true}

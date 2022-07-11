@@ -1,35 +1,25 @@
 import sys
+import bisect
 
 n = int(sys.stdin.readline())
-line_list = list()
-dp_table = [1] * (n + 1)
+a = list()
+b = list()
 for _ in range(n):
-    line_list.append(list(map(int, sys.stdin.readline().split())))
+    n1, n2 = map(int, sys.stdin.readline().split())
+    a.append(n1)
+    b.append(n2)
+line_list = [a, b]
+dp = [[a[0]], [b[0]]]
+dp_2 = [0] * (n + 1)
+for i in range(1, n):
+    if a[i - 1] < a[i] and b[i - 1] < b[i]:
+        dp_2[i] = len(dp)
+        dp[0].append(a[i])
+        dp[1].append(b[i])
+    else:
+        dp_2[i] = min(bisect.bisect_left(dp[0], a[i]), bisect.bisect_left(dp[1], b[i]))
+        dp[0][dp_2[i]] = a[i]
+        dp[1][dp_2[i]] = b[i]
 
-line_list.sort()
-
-for i in range(n):
-    cur_x, cur_y = line_list[i][0], line_list[i][1]
-    max_dp = 0
-    for j in range(i):
-        if line_list[j][0] < cur_x and line_list[j][1] < cur_y:
-            dp_table[i] = max(dp_table[i], dp_table[j] + 1)
-
-print(n - max(dp_table))
-
-max_dp = max(dp_table)
-max_dp_idx = dp_table.index(max_dp)
-
-lis = list()
-for i in range(n - 1, -1, -1):
-    if dp_table[i] == max_dp:
-        lis.append(line_list[i])
-    max_dp -= 1
-
-result = list()
-for line in line_list:
-    if line not in lis:
-        result.append(line[0])
-
-for num in sorted(result):
-    print(num)
+print(dp)
+print(dp_2)

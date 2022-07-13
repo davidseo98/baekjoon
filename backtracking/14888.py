@@ -14,34 +14,27 @@ def calculate(cur_num, next_num, sign_num):
         return cur_num // next_num
 
 
-def backtracking():
-    global answer, result
-    if len(result) == n - 1:
-        temp = num_list[0]
-        for i in range(1, n):
-            temp = calculate(temp, num_list[i], result[i - 1])
-        answer.append(temp)
+def dfs(depth, total, plus, minus, multiply, divide):
+    global answer
+    if depth == n:
+        answer.append(total)
         return
 
-    for i in range(n - 1):
-        if visited[i]:
-            continue
-        result.append(sign_list[i])
-        visited[i] = True
-        backtracking()
-        result.pop()
-        visited[i] = False
+    if plus:
+        dfs(depth + 1, total + num_list[depth], plus - 1, minus, multiply, divide)
+    if minus:
+        dfs(depth + 1, total - num_list[depth], plus, minus - 1, multiply, divide)
+    if multiply:
+        dfs(depth + 1, total * num_list[depth], plus, minus, multiply - 1, divide)
+    if divide:
+        dfs(depth + 1, int(total / num_list[depth]), plus, minus, multiply, divide - 1)
 
 
 n = int(sys.stdin.readline())
 num_list = list(map(int, sys.stdin.readline().split()))
-sign_temp = list(map(int, sys.stdin.readline().split()))
-sign_list = list()
+sign_list = list(map(int, sys.stdin.readline().split()))
 visited = [False] * (n - 1)
-for i in range(4):
-    sign_list += [i] * sign_temp[i]
 answer = list()
-result = list()
-backtracking()
+dfs(1, num_list[0], sign_list[0], sign_list[1], sign_list[2], sign_list[3])
 print(max(answer))
 print(min(answer))

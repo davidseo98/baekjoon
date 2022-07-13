@@ -1,0 +1,1 @@
+{"name":"Local: 1911","url":"/Users/hyundukseo/workspace/coding_test/greedy/1911.py","tests":[{"id":1657713908094,"input":"3 3\n1 6\n13 17\n8 12","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/greedy/1911.py","group":"local","local":true}

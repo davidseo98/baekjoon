@@ -14,14 +14,17 @@ def bfs():
             if graph_cpy[y][x] == 2:
                 virus.append((x, y))
 
-    while virus:
+    # while virus:
+    for _ in range(3):
         x, y = virus.popleft()
         for i in range(4):
             nx, ny = x + dx[i], y + dy[i]
-            if 0 <= nx < w and 0 <= ny < h:
-                if graph_cpy[ny][nx] == 0:
-                    graph_cpy[ny][nx] = 2
-                    virus.append((nx, ny))
+            if 0 <= nx < w and 0 <= ny < h and graph_cpy[ny][nx] == 0:
+                graph_cpy[ny][nx] = 2
+                # for line in graph_cpy:
+                #     print(line)
+                # print()
+                virus.append((nx, ny))
     result = 0
     for line in graph_cpy:
         result += line.count(0)

@@ -1,0 +1,1 @@
+{"name":"Local: 5525","url":"/Users/hyundukseo/workspace/coding_test/string/5525.py","tests":[{"id":1657801475530,"input":"1\n13\nOOIOIOIOIIOII","output":""},{"id":1657801510309,"input":"2\n13\nOOIOIOIOIIOII","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/string/5525.py","group":"local","local":true}

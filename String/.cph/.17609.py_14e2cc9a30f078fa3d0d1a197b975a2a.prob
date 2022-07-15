@@ -1,0 +1,1 @@
+{"name":"Local: 17609","url":"/Users/hyundukseo/workspace/coding_test/string/17609.py","tests":[{"id":1657858208491,"input":"8\nabba\nsummuus\nxabba\nxabbay\ncomcom\ncomwwmoc\ncomwwtmoc\nbyb","output":"0\n1\n1\n2\n2\n0\n1\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/string/17609.py","group":"local","local":true}

@@ -1,49 +1,22 @@
-from itertools import permutations
+import sys
 
-n = int(input())
-
-words = list()
-for i in range(n):
-    words.append(input())
-
-
-def word2dict(word):
-    letters = list()
-    original = list()
-    letters_dict = dict()
+t = int(sys.stdin.readline())
+input_list = [sys.stdin.readline().strip() for _ in range(t)]
+word_list = list()
+for word in input_list:
+    line = list()
     for i in range(len(word)):
-        letters.append(word[i])
-        original.append(word[i])
+        line.append(word[i])
+    word_list.append(line)
 
-    letters = sorted(list(set(letters)))
-    for i in range(len(letters)):
-        letters_dict[letters[i]] = i + 1
-
-    for i in range(len(word) - 1, -1, -1):
-        temp = list()
-        part = word[i:]
-        for j in range(len(part)):
-            temp.append(part[j])
-        # if "".join(sorted(temp)) != part :
-        print(sorted(temp, reverse=True))
-        print(part)
-        # print(word[i:])
-
-        # a = letters_dict[word[i]]
-        # for j in range(i - 1, -1, -1):
-        #    b = letters_dict[word[j]]
-        #    if a > b:
-        #        original[i], original[j] = original[j], original[i]
-        #        #print(i,j, len(word))
-        #        if j + 1 != len(word)-1 :
-        #            original = original[: j + 1] + sorted(original[j + 1:])
-        #        #original = original[: j + 1] + sorted(original[j + 1 :])
-        #        return original
-
-
-for word in words:
-    l = word2dict(word)
-    if l == None:
-        print(word)
-    else:
-        print("".join(l))
+for word in word_list:
+    for i in range(len(word) - 1, 0, -1):
+        if word[i] > word[i - 1]:
+            idx = i
+            for j in range(i, len(word)):
+                if word[i - 1] < word[j]:
+                    idx = j
+            word[idx], word[i - 1] = word[i - 1], word[idx]
+            word = word[:i] + sorted(word[i:])
+            break
+    print("".join(word))

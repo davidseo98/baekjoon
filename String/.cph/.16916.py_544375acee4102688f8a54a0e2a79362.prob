@@ -1,0 +1,1 @@
+{"name":"Local: 16916","url":"/Users/hyundukseo/workspace/coding_test/string/16916.py","tests":[{"id":1657857780027,"input":"baekjoon\naek","output":"1"},{"id":1657857790715,"input":"baekjoon\nbak","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/string/16916.py","group":"local","local":true}

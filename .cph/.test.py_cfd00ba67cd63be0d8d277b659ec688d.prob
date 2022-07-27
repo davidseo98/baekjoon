@@ -1,0 +1,1 @@
+{"name":"Local: test","url":"/Users/hyundukseo/workspace/coding_test/test.py","tests":[{"id":1658395716657,"input":"110","output":"99"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/test.py","group":"local","local":true}

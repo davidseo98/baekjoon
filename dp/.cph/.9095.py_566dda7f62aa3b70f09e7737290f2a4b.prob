@@ -1,0 +1,1 @@
+{"name":"Local: 9095","url":"/Users/hyundukseo/workspace/coding_test/dp/9095.py","tests":[{"id":1658888598656,"input":"3\n4\n7\n10","output":"7\n44\n274"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/dp/9095.py","group":"local","local":true}

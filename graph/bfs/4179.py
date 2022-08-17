@@ -5,46 +5,42 @@ from collections import deque
 def bfs():
     dx = [1, -1, 0, 0]
     dy = [0, 0, 1, -1]
-    count = 0
-    while person_queue:
-        count += 1
-        while fire_queue and fire_queue[0][2] < count:
-            x, y, time = fire_queue.popleft()
-            for i in range(4):
-                nx, ny = x + dx[i], y + dy[i]
-                if 0 <= nx < w and 0 <= ny < h:
-                    if graph[y][x] == "." or graph[y][x] == "J":
-                        fire_queue.append((nx, ny, time + 1))
-                        graph[ny][nx] = "F"
+    while fire_loc_list:
+        fx, fy = fire_loc_list.pop()
+        queue.append((fx, fy, "f", 0))
+        visited[fx][fy] = True
+    queue.append((px, py, "p", 0))
+    visited[px][py] = True
+    while queue:
+        cx, cy, t, cnt = queue.popleft()
+        if t == "p" and (cx in [0, h - 1] or cy in [0, w - 1]):
+            print(cnt + 1)
+            return
+        for i in range(4):
+            nx, ny = cx + dx[i], cy + dy[i]
+            if (
+                0 <= nx < h
+                and 0 <= ny < w
+                and not visited[nx][ny]
+                and graph[nx][ny] != "#"
+            ):
+                visited[nx][ny] = True
+                queue.append((nx, ny, t, cnt + 1))
 
-        while person_queue and person_queue[0][2] < count:
-            x, y, time = person_queue.popleft()
-            for i in range(4):
-                nx, ny = x + dx[i], y + dy[i]
-                if 0 <= nx < w and 0 <= ny < h:
-                    if not visited[ny][ny] and graph[ny][nx] == ".":
-                        person_queue.append((nx, ny, time + 1))
-                        visited[ny][nx] = True
-                else:
-                    return count
-
-    return "IMPOSSIBLE"
+    print("IMPOSSIBLE")
 
 
 h, w = map(int, sys.stdin.readline().split())
 visited = [[False] * w for _ in range(h)]
-graph = [[] for _ in range(h)]
+graph = [list(sys.stdin.readline().rstrip()) for _ in range(h)]
+queue = deque()
+fire_loc_list = list()
+
 for i in range(h):
-    for element in sys.stdin.readline().strip():
-        graph[i].append(element)
+    for j in range(w):
+        if graph[i][j] == "J":
+            px, py = i, j
+        elif graph[i][j] == "F":
+            fire_loc_list.append((i, j))
 
-fire_queue = deque()
-for y in range(h):
-    for x in range(w):
-        if graph[y][x] == "J":
-            person_queue = deque([(x, y, 0)])
-            visited[y][x] = True
-        elif graph[y][x] == "F":
-            fire_queue.append((x, y, 0))
-
-print(bfs())
+bfs()

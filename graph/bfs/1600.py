@@ -14,7 +14,8 @@ answer = list()
 while queue:
     x, y, cnt, ck = queue.popleft()
     if x == h - 1 and y == w - 1:
-        answer.append(cnt)
+        print(cnt)
+        exit()
     for i in range(4):
         nx, ny = x + dx[i], y + dy[i]
         if (
@@ -39,7 +40,4 @@ while queue:
     # print()
     # for line in visited:
     #     print(line)
-if answer:
-    print(min(answer))
-else:
-    print(-1)
+print(-1)

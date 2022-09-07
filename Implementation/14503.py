@@ -5,7 +5,6 @@ def check_left(x, y, d):
     global answer
     left_dir = (d - 1) % 4
     nx, ny = x + dx[left_dir], y + dy[left_dir]
-    # print(nx, ny)
     if 0 <= nx < h and 0 <= ny < w and graph[nx][ny] == 0:
         graph[nx][ny] = 2
         answer += 1
@@ -18,18 +17,13 @@ def check_possible(x, y, d):
     original_dir = d
     for _ in range(4):
         check, x, y, d = check_left(x, y, d)
-        # print(d)
         if check:
             return 1, x + dx[d], y + dy[d], d
 
     back_dir = (original_dir + 2) % 4
-    # print(original_dir, d)
     bx, by = x + dx[back_dir], y + dy[back_dir]
-    # print(x, y, bx, by, back_dir, d)
     if 0 <= bx < h and 0 <= by < w and graph[bx][by] == 2:
-
         return 2, bx, by, original_dir
-
     else:
         return 3, x, y, d
 
@@ -44,12 +38,10 @@ dx = [-1, 0, 1, 0]
 
 graph[cur_x][cur_y] = 2
 answer += 1
+
 while 1:
     status, cur_x, cur_y, cur_dir = check_possible(cur_x, cur_y, cur_dir)
-    # print(status, cur_x, cur_y, cur_dir)
     if status == 3:
         break
 
 print(answer)
-# for line in graph:
-#     print(line)

@@ -2,61 +2,43 @@ import sys
 from collections import deque
 
 
-def search():
+def remove_node(d):
+    global graph
+    parent = num_list[d]
+    if parent == -1:
+        print(0)
+        exit()
+    graph[parent].remove(d)
+    if len(graph[parent]) == 0:
+        del graph[parent]
+
+
+def bfs():
     global answer
     queue = deque()
-    queue.append(0)
+    queue.append(-1)
     while queue:
-        cur_node = queue.popleft()
-        if cur_node not in graph.keys():
+        c_node = queue.popleft()
+        if c_node in graph.keys():
+            for n_node in graph[c_node]:
+                queue.append(n_node)
+        else:
             answer += 1
-            continue
-
-        for child in graph[cur_node]:
-            queue.append(child)
 
 
-def bfs(delete):
-    queue = deque()
-    queue.append(delete)
-    visited[delete] = True
-    while queue:
-        cur_node = queue.popleft()
-        if cur_node not in graph.keys():
-            continue
-
-        for child in graph[cur_node]:
-            if not visited[child] and child in graph.keys():
-                queue.append(child)
-                visited[child] = True
-
-
-graph = dict()
 n = int(sys.stdin.readline())
-nodes = list(map(int, sys.stdin.readline().split()))
-delete_node = int(sys.stdin.readline())
-visited = [False] * (n)
+num_list = list(map(int, sys.stdin.readline().split()))
+delete = int(sys.stdin.readline())
+graph = dict()
+for i in range(n):
+    if num_list[i] in graph.keys():
+        graph[num_list[i]].append(i)
+    else:
+        graph[num_list[i]] = [i]
 answer = 0
 
-for i in range(n):
-    if i == 0:
-        graph[-1] = [i]
-        continue
-    if nodes[i] not in graph.keys():
-        graph[nodes[i]] = [i]
-    else:
-        graph[nodes[i]].append(i)
+remove_node(delete)
+bfs()
 
-bfs(delete_node)
-
-graph[nodes[delete_node]].remove(delete_node)
-if len(graph[nodes[delete_node]]) == 0:
-    del graph[nodes[delete_node]]
-
-for i in range(n):
-    if visited[i] and i in graph.keys():
-        del graph[i]
-
-search()
-
+# print(graph)
 print(answer)

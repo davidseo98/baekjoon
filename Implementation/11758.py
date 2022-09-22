@@ -1,40 +1,66 @@
-from re import L
 import sys
 
 
-coordinates = list()
-for _ in range(3):
-    x, y = map(int, sys.stdin.readline().split())
-    coordinates.append((x, y))
+points = [list(map(int, sys.stdin.readline().split())) for _ in range(3)]
 
-relative_slopes = list()
-absolute_slopes = list()
-for i in range(3):
-    cx, cy = coordinates[i]
-    if cx == 0:
-        absolute_slopes.append(float("inf"))
-        continue
-    coordinates.append(cx / cy)
-for i in range(1, 3):
-    cx, cy = coordinates[i]
-    px, py = coordinates[i - 1]
-    dx, dy = cx - px, cy - py
-    if dx == 0:
-        relative_slopes.append(float("inf"))
-        continue
-    relative_slopes.append(dy / dx)
-
-if relative_slopes[1] == relative_slopes[0]:
-    print(0)
-    exit()
-
-if slopes[0] >= 0:
-    if slopes[0] > slopes[1]:
-        print(-1)
-    else:
-        print(1)
+if points[0][0] == points[1][0]:
+    slope = "y_line"
+elif points[0][1] == points[1][1]:
+    slope = "x_line"
 else:
-    if slopes[0] < slopes[1]:
-        print(1)
+    slope = (points[0][1] - points[1][1]) / (points[0][0] - points[1][0])
+
+
+if slope == "y_line":
+    dir = points[1][1] - points[0][1]
+    if points[2][0] == points[0][0]:
+        print(0)
+    elif points[2][0] > points[0][0]:
+        if dir > 0:
+            print(-1)
+        else:
+            print(1)
     else:
-        print(1)
+        if dir > 0:
+            print(1)
+        else:
+            print(-1)
+
+elif slope == "x_line":
+    dir = points[1][0] - points[0][0]
+    if points[2][1] == points[0][1]:
+        print(0)
+    elif points[2][1] > points[0][1]:
+        if dir > 0:
+            print(1)
+        else:
+            print(-1)
+    else:
+        if dir > 0:
+            print(-1)
+        else:
+            print(1)
+
+else:
+    y_intercept = points[0][1] - slope * points[0][0]
+    y_value = points[2][0] * slope + y_intercept
+    dir = points[1][0] - points[0][0]
+
+    if y_value == points[2][1]:
+        print(0)
+
+    elif y_value > points[2][1]:
+        if dir > 0:
+            print(-1)
+        elif dir < 0:
+            print(1)
+        else:
+            pass
+
+    else:
+        if dir < 0:
+            print(-1)
+        elif dir > 0:
+            print(1)
+
+# print(y_value, points[2], dir)

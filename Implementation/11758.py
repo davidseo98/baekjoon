@@ -1,66 +1,81 @@
+from re import L
 import sys
 
 
 points = [list(map(int, sys.stdin.readline().split())) for _ in range(3)]
+slopes = list()
+for i in range(1, 3):
+    dx = points[i][0] - points[i - 1][0]
+    dy = points[i][1] - points[i - 1][1]
+    if dx == 0:
+        slopes.append("vertical_line")
+        continue
+    if dy == 0:
+        slopes.append("horizontal_line")
+        continue
 
-if points[0][0] == points[1][0]:
-    slope = "y_line"
-elif points[0][1] == points[1][1]:
-    slope = "x_line"
+    slopes.append(dy / dx)
+
+if slopes[0] == slopes[1]:
+    print(0)
+    exit()
+
+if slopes[0] == "horizontal_line":
+    if points[0][0] < points[1][0]:
+        if points[1][1] < points[2][1]:
+            print(1)
+        else:
+            print(-1)
+
+    else:
+        if points[1][1] < points[2][1]:
+            print(-1)
+        else:
+            print(1)
+
+if slopes[0] == "vertical_line":
+    if points[0][1] > points[1][1]:
+        if points[1][0] < points[2][0]:
+            print(1)
+        else:
+            print(-1)
+
+    else:
+        if points[1][1] < points[2][1]:
+            print(-1)
+        else:
+            print(1)
+
 else:
-    slope = (points[0][1] - points[1][1]) / (points[0][0] - points[1][0])
-
-
-if slope == "y_line":
-    dir = points[1][1] - points[0][1]
-    if points[2][0] == points[0][0]:
+    decide = (points[0][0] - points[1][0]) * (points[1][1] - points[2][1]) - (
+        points[1][0] - points[2][0]
+    ) * (points[1][1] - points[2][1])
+    if decide == 0:
         print(0)
-    elif points[2][0] > points[0][0]:
-        if dir > 0:
-            print(-1)
-        else:
-            print(1)
-    else:
-        if dir > 0:
-            print(1)
-        else:
-            print(-1)
+        exit()
 
-elif slope == "x_line":
-    dir = points[1][0] - points[0][0]
-    if points[2][1] == points[0][1]:
-        print(0)
-    elif points[2][1] > points[0][1]:
-        if dir > 0:
-            print(1)
+    if slopes[0] > 0:
+        if slopes[1] > 0:
+            if decide < 0:
+                print(1)
+            
         else:
-            print(-1)
-    else:
-        if dir > 0:
-            print(-1)
-        else:
-            print(1)
-
-else:
-    y_intercept = points[0][1] - slope * points[0][0]
-    y_value = points[2][0] * slope + y_intercept
-    dir = points[1][0] - points[0][0]
-
-    if y_value == points[2][1]:
-        print(0)
-
-    elif y_value > points[2][1]:
-        if dir > 0:
-            print(-1)
-        elif dir < 0:
-            print(1)
-        else:
-            pass
+            if points[1][1] < points[2][1]:
+                print(1)
+            else:
+                print(-1)
 
     else:
-        if dir < 0:
-            print(-1)
-        elif dir > 0:
-            print(1)
+        if slopes[1] < 0:
+            if decide > 0:
+                print(-1)
+            else:
+                print(1)
+        else:
+            if points[1][1] < points[2][1]:
+                print(-1)
+            else:
+                print(1)
 
-# print(y_value, points[2], dir)
+
+# print(slopes)

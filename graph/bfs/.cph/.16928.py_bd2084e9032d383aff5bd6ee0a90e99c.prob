@@ -1,0 +1,1 @@
+{"name":"Local: 16928","url":"/Users/hyundukseo/workspace/coding_test/graph/bfs/16928.py","tests":[{"id":1665141606202,"input":"3 7\n32 62\n42 68\n12 98\n95 13\n97 25\n93 37\n79 27\n75 19\n49 47\n67 17","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/graph/bfs/16928.py","group":"local","local":true}

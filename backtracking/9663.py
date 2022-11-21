@@ -1,56 +1,34 @@
 import sys
+sys.setrecursionlimit(50000)
+
+n = int(sys.stdin.readline())
+answer = 0
+unable = [[0]*n for _ in range(n)]
+x_unable = []
+y_unable = []
+
+def check_unable(x, y):
+    for i in range(len(x_unable)):
+        if x == x_unable[i] or y == y_unable[i] or abs(x - x_unable[i]) == abs(y - y_unable[i]):
+            return 0
+    return 1
 
 
-def check_places(x, y):
-    global visited
-    for i in range(n):
-        visited[i][y] += 1
-        visited[x][i] += 1
+def dfs(count):
+    global unable, answer
 
-    pass
-
-
-def uncheck_places(x, y):
-    global visited
-
-    pass
-
-
-def dfs():
-    global answer, queens
-
-    if len(queens) == n:
-        is_possible = True
-        for m in range(n):
-            for k in range(m + 1, n):
-
-                x1, y1 = queens[m]
-                x2, y2 = queens[k]
-
-                if x1 == x2 or y1 == y2 or abs(x1 - x2) / abs(y1 - y2) == 1.0:
-                    is_possible = False
-
-        if is_possible:
-            answer += 1
-
-        return
+    if count == n:
+        answer += 1
+        return 
 
     for i in range(n):
         for j in range(n):
-            if visited[i][j]:
-                continue
-            queens.append((i, j))
-            visited[i][j] = True
-            dfs()
-            queens.pop()
-            visited[i][j] = False
+            if check_unable(i, j):
+                x_unable.append(i)
+                y_unable.append(j)
+                dfs(count + 1)
+                x_unable.pop()
+                y_unable.pop()
 
-
-n = int(sys.stdin.readline())
-visited = [[False] * n for _ in range(n)]
-queens = list()
-answer = 0
-
-dfs()
-
+dfs(0)
 print(answer)

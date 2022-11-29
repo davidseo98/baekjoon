@@ -1,0 +1,1 @@
+{"name":"Local: 1991","url":"c:\\Users\\BRAIN\\Documents\\Workspace\\baekjoon\\graph\\1991.py","tests":[{"id":1669556510140,"input":"7\nA B C\nB D .\nC E F\nE . .\nF . G\nD . .\nG . .","output":"ABDCEFG"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\BRAIN\\Documents\\Workspace\\baekjoon\\graph\\1991.py","group":"local","local":true}

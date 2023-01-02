@@ -1,0 +1,1 @@
+{"name":"Local: 2559","url":"/Users/hyundukseo/workspace/coding_test/two-pointer/2559.py","tests":[{"id":1672639774568,"input":"10 2\n3 -2 -4 -9 0 3 7 13 8 -3","output":"21"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/two-pointer/2559.py","group":"local","local":true}

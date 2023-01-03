@@ -14,6 +14,7 @@ while lo < hi:
     if abs(add) < best:
         best = abs(add)
         answer = [liquid[lo], liquid[hi]]
+        if add == 0: break
     
     if add <= 0: lo += 1
     else: hi -= 1

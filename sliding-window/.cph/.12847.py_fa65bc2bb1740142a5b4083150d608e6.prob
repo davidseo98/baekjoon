@@ -1,0 +1,1 @@
+{"name":"Local: 12847","url":"/Users/hyundukseo/workspace/coding_test/sliding-window/12847.py","tests":[{"id":1672790673674,"input":"5 3\n10 20 30 20 10","output":"70"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/sliding-window/12847.py","group":"local","local":true}

@@ -1,0 +1,19 @@
+# 구분 : 비트 연산
+# 소요 시간 : 30분
+
+def check_min(num):
+    binary = bin(num)[::-1]
+    one = -1
+    for i in range(len(binary) - 2):
+        if binary[i] == "1": one = i
+        if binary[i] == '0':
+            # 0을 1로 바꾸고, 만약 해당 0이전에 1이 존재하면 0으로 변경
+            return num + 2 ** i if one == -1 else num + 2 ** i - 2 ** one
+    # 전부 1이라면 맨 마지막에 1을 추가하고 그전 1을 0으로 변경
+    return num + 2 ** (i + 1) - 2 ** i
+
+def solution(numbers):
+    answer = []
+    for num in numbers:
+        answer.append(check_min(num))
+    return answer

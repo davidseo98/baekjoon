@@ -1,0 +1,1 @@
+{"name":"Local: 14267","url":"c:\\Users\\BRAIN\\Documents\\Workspace\\baekjoon\\dp\\14267.py","tests":[{"id":1679614684482,"input":"5 3\n-1 1 2 3 4\n2 2\n3 4\n5 6","output":"0 2 6 6 12"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\BRAIN\\Documents\\Workspace\\baekjoon\\dp\\14267.py","group":"local","local":true}

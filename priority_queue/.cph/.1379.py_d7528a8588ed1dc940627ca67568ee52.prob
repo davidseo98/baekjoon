@@ -1,0 +1,1 @@
+{"name":"Local: 1379","url":"/Users/hyundukseo/workspace/coding_test/priority_queue/1379.py","tests":[{"id":1681346062387,"input":"8\n6 15 21\n7 20 25\n1 3 8\n3 2 14\n8 6 27\n2 7 13\n4 12 18\n5 6 20","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/hyundukseo/workspace/coding_test/priority_queue/1379.py","group":"local","local":true}
